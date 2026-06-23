@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+</html>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Absensi Siswa</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #eef2f3;
+        }
+        .container {
+            width: 400px;
+            margin: 30px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+        }
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: white;
+        }
+        th, td {
+            border: 1px solid #333;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Form Absensi</h2>
+
+    <input type="text" id="nama" placeholder="Nama">
+    
+    <select id="kelas">
+        <option value="">Pilih Kelas</option>
+        <option>AA1</option>
+        <option>AA2</option>
+        <option>AA3</option>
+    </select>
+
+    <select id="status">
+        <option value="">Status Kehadiran</option>
+        <option>Hadir</option>
+        <option>Izin</option>
+        <option>Sakit</option>
+        <option>Alpha</option>
+    </select>
+
+    <button onclick="tambahData()">Simpan</button>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Nama</th>
+            <th>Kelas</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody id="tabelData">
+        <!-- Data awal 10 orang -->
+        <tr><td>1</td><td>Shamir</td><td>AA1</td><td>Hadir</td></tr>
+        <tr><td>2</td><td>Safuan</td><td>AA1</td><td>Izin</td></tr>
+        <tr><td>3</td><td>Windu</td><td>AA1
+        </td><td>Sakit</td></tr>
+        <tr><td>4</td><td>Reifan</td><td>AA1</td><td>Hadir</td></tr>
+        <tr><td>5</td><td>Ridho</td><td>AA1</td><td>Hadir</td></tr>
+        <tr><td>6</td><td>Lingga</td><td>AA1</td><td>Hadir</td></tr>
+        <tr><td>7</td><td>Haikal</td><td>AA1</td><td>Hadir</td></tr>
+        <tr><td>8</td><td>Boim</td><td>AA1</td><td>Hadir</td></tr>
+        <tr><td>9</td><td>Zidane</td><td>AA1</td><td>Sakit</td></tr>
+        <tr><td>10</td><td>Bowo</td><td>AA1</td><td>Alpha</td></tr>
+        <tr><td>11</td><td>Joko</td><td>AA1</td><td>Alpha</td></tr>
+         <tr><td>12</td><td>Misbah</td><td>AA1</td><td>Izin</td></tr>
+         <tr><td>13</td><td>Retno</td><td>AA1</td><td>Hadir</td></tr>
+    </tbody>
+</table>
+
+<script>
+    let no = 11; // lanjut dari 10
+
+    function tambahData() {
+        let nama = document.getElementById("nama").value;
+        let kelas = document.getElementById("kelas").value;
+        let status = document.getElementById("status").value;
+
+        if(nama === "" || kelas === "" || status === "") {
+            alert("Isi semua data!");
+            return;
+        }
+
+        let tabel = document.getElementById("tabelData");
+        let row = tabel.insertRow();
+
+        row.insertCell(0).innerHTML = no++;
+        row.insertCell(1).innerHTML = nama;
+        row.insertCell(2).innerHTML = kelas;
+        row.insertCell(3).innerHTML = status;
+
+        document.getElementById("nama").value = "";
+        document.getElementById("kelas").value = "";
+        document.getElementById("status").value = "";
+    }
+</script>
+
+</body>
+</html>
